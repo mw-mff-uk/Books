@@ -88,4 +88,5 @@ int main()
   all(size, A);
   all(size, B);
   all(size, C);
+  all(size, D);
 }
