@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+void mprint(int size, int matrix[size][size])
+{
+  for (int r = 0; r < size; r++)
+    for (int c = 0; c < size; c++)
+      printf("%d%c", matrix[r][c], c == size - 1 ? '\n' : ' ');
+}
+
 int proper(int size, int matrix[size][size])
 {
   for (int r = 0; r < size; r++)
@@ -43,18 +50,42 @@ int improper(int size, int matrix[size][size])
   return 1;
 }
 
-int main()
+void all(int size, int matrix[size][size])
 {
-  int size = 3;
-
-  int matrix[3][3] = {
-      {1, 2, 4},
-      {2, 3, 1},
-      {6, 2, 1}};
-
   int prop = proper(size, matrix);
   int iprop = improper(size, matrix);
   int mir = mirror(size, matrix);
 
-  printf("%d %d %d\n", prop, iprop, mir);
+  mprint(size, matrix);
+  printf("-----\n");
+  printf("%d %d %d\n\n", prop, iprop, mir);
+}
+
+int main()
+{
+  int size = 3;
+
+  int A[3][3] = {
+      {1, 2, 4},
+      {2, 3, 2},
+      {6, 2, 1}};
+
+  int B[3][3] = {
+      {1, 2, 1},
+      {4, 2, 4},
+      {6, 0, 6}};
+
+  int C[3][3] = {
+      {1, 2, 3},
+      {2, 5, 2},
+      {3, 2, 1}};
+
+  int D[3][3] = {
+      {4, 4, 4},
+      {4, 4, 4},
+      {4, 4, 4}};
+
+  all(size, A);
+  all(size, B);
+  all(size, C);
 }
