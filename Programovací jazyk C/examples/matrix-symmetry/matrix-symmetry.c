@@ -52,5 +52,9 @@ int main()
       {2, 3, 1},
       {6, 2, 1}};
 
-  printf("%d\n", improper(size, matrix));
+  int prop = proper(size, matrix);
+  int iprop = improper(size, matrix);
+  int mir = mirror(size, matrix);
+
+  printf("%d %d %d\n", prop, iprop, mir);
 }
